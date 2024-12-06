@@ -23,7 +23,7 @@ class StatisticsCalculator:
         """
         
         column = options['column']
-        range = options['range']
+        range = options['numeric_range']
         mean = 0
 
         if range:
@@ -41,7 +41,7 @@ class StatisticsCalculator:
         """
         
         column = options['column']
-        range = options['range']
+        range = options['numeric_range']
         median = 0
 
         if range:
@@ -73,7 +73,7 @@ class StatisticsCalculator:
         """
         
         column = options['column']
-        range = options['range']
+        range = options['numeric_range']
         variance = 0
 
         if range:
@@ -91,7 +91,7 @@ class StatisticsCalculator:
         """
         
         column = options['column']
-        range = options['range']
+        range = options['numeric_range']
         stdDev = 0
 
         if range:
@@ -109,7 +109,7 @@ class StatisticsCalculator:
         """
         
         column = options['column']
-        range = options['range']
+        range = options['numeric_range']
         volatility = 0
 
         if range:
@@ -143,6 +143,12 @@ class StatisticsCalculator:
         
         column = options['column']
         range = options['range']
+
+        # need to convert range to indices
+        if range:
+            range = [df[df['date'] == range[0]].index[0], df[df['date'] == range[1]].index[0]]
+        options['numeric_range'] = range
+
         window = options['window']
 
         calculations = {}

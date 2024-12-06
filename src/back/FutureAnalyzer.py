@@ -7,11 +7,11 @@ File: FutureAnalyzer.py
 Description: This file contains the FutureAnalyzer class 
 """
 
-from src.back.Predictor import Predictor
-from src.back.Visualizer import Visualizer
-from src.back.StatisticsCalculator import StatisticsCalculator
-from src.back.models import Gold, Silver, Copper, Platinum, Palladium, Predictions, Visualizations, Statistics
-from src.back.models import session
+from back.Predictor import Predictor
+from back.Visualizer import Visualizer
+from back.StatisticsCalculator import StatisticsCalculator
+from back.models import Gold, Silver, Copper, Platinum, Palladium, Predictions, Visualizations, Statistics
+from back.models import session
 
 from enum import Enum
 import pandas as pd
@@ -32,7 +32,6 @@ class FutureAnalyzer:
         This function takes in a dataframe and visualizes the data.
         """
         self.dataLoader(options['metal'])
-        options['title'] = options['y'] + " " + options['metal'].name
         self.visualizer.visualizeData(self.data, options)
         # self.saveVisualization(options)
 
@@ -70,6 +69,7 @@ class FutureAnalyzer:
         elif data == metals.palladium:
             result = session.query(Palladium).all()
         else:
+            print("Invalid metal")
             result = None
             return
         

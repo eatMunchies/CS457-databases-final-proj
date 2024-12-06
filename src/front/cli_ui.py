@@ -13,6 +13,9 @@ import os
 from front.helpers import print_welcome_message
 from front.menus import main_menu, statistics_menu, predict_menu, visualize_menu, quit_menu
 from back.FutureAnalyzer import FutureAnalyzer
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # main class
 
@@ -28,6 +31,6 @@ class UI:
         choice = 0
 
         while True:
-            choice = menus[choice]()
+            choice = menus[choice](self.fa)
             if choice == 8989:
                 break
