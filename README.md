@@ -1,5 +1,5 @@
 
-### My Final Project for Databases
+# My Final Project for Databases
 
 This is my simple project that I use as a submission for my databases final project.
 The requirements are as follows:
@@ -22,29 +22,29 @@ https://www.kaggle.com/datasets/guillemservera/precious-metals-data
     - simple linear regression
     - moving average
 
-# frontend: 
+## frontend: 
 CLI
 
-# backend: 
+## backend: 
 python + postgres (sqlalchemy)
 
-## how to run
+# how to run
 
-# setup your postgres DB on localhost.
+## setup your postgres DB on localhost.
 
 - adjust src.back.models.py appropriately 
     - I have a schema for the tables defined in each table's table_args
     - I also set the connection params which you may have to change, consider using a .env if you care about security
 
-# setup python environment (use the venv)
+## setup python environment (use the venv)
 - source venv/bin/activate
 - pip install -r requirements.txt
 
-# load the database 
+## load the database 
 
 - copy the models.py structures into the load_db.ipynb notebook accordingly
 - adjust the connection parameters too
 - run through the script to put the csvs into the db
 
-# run the CLI
+## run the CLI
 - python3 main.py
