@@ -61,7 +61,7 @@ class StatisticsCalculator:
         column = options['column']
         mode = 0
 
-        mode = df[column].mode()
+        mode = df[column].mode()[0]
 
         self.sessionStatistics += 1
         
@@ -146,8 +146,13 @@ class StatisticsCalculator:
 
         # need to convert range to indices
         if range:
-            range = [df[df['date'] == range[0]].index[0], df[df['date'] == range[1]].index[0]]
-        options['numeric_range'] = range
+            # range = [df[df['date'] == range[0]]['date_ordinal'].iloc[0], df[df['date'] == range[1]]['date_ordinal'].iloc[0]]
+            start_idx = df[df['date'] == range[0]].index[0]
+            end_idx = df[df['date'] == range[1]].index[0]
+            options['numeric_range'] = [start_idx, end_idx]
+        else:
+            options['numeric_range'] = range
+
 
         window = options['window']
 

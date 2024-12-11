@@ -103,6 +103,8 @@ class FutureAnalyzer:
         This function saves the statistics to the database.
         """
 
+        print("statistic: ", statistic)
+
         for stat_type, value in statistic.items():
             newStatistic = Statistics(
                 metal=options['metal'].name,
@@ -114,7 +116,7 @@ class FutureAnalyzer:
                 column=options['column']
             )
             if options['range'] != None:
-                print(options['range'])
+                # print(options['range'])
                 newStatistic.start_date = options['range'][0]
                 newStatistic.end_date = options['range'][1]
             else:
