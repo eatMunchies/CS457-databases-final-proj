@@ -50,7 +50,8 @@ class Visualizer:
             return
         
         self.sessionVisualizations += 1
-
+        
+        options['outputPath'] = "../data/images/"
         if 'outputPath' in options:
             plt.savefig(options['outputPath'] + options['title'] + '.png', bbox_inches='tight')
             print(f"Plot saved to {options['outputPath']}")
