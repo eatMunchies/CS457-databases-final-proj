@@ -48,3 +48,8 @@ python + postgres (sqlalchemy)
 
 ## run the CLI
 - python3 main.py
+
+## Future improvements:
+
+- utilize the saved data in the DB to be able to display a history of actions on the application to the user and search if something has already been procesed beforehand so it can be returned instead of recalculating it. 
+- turn data loading for initialization via the load_db.ipynb file into a script rather than a notebook
